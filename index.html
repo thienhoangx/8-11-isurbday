@@ -10,13 +10,14 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background:black;
+            background: black;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-family: 'Noto Serif Display', serif;
             overflow: hidden;
+            position: relative;
         }
 
         .container {
@@ -120,6 +121,60 @@
             animation: float 6s linear infinite;
         }
 
+        /* Social links styles */
+        .social-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            text-align: left;
+        }
+
+        .main-button {
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #ff3333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Noto Serif Display', serif;
+        }
+
+        .main-button:hover {
+            background-color: #cc1a1a;
+        }
+
+        .social-links {
+            display: none;
+            margin-top: 10px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-links.active {
+            display: flex;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .social-link span {
+            font-family: 'Noto Serif Display', serif;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -173,17 +228,6 @@
             }
         }
 
-        @keyframes sparkle {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1) rotate(180deg);
-            }
-        }
-
         @keyframes float {
             0% {
                 transform: translateY(100vh);
@@ -209,12 +253,50 @@
             .container {
                 padding: 30px 20px;
             }
+            .message {
+                margin-right: 0;
+                font-size: 16px;
+            }
+            .social-container {
+                top: 10px;
+                left: 10px;
+            }
+            .main-button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .social-link img {
+                width: 20px;
+                height: 20px;
+            }
+            .social-link span {
+                font-size: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="floating-hearts"></div>
-    
+
+    <!-- Social links GUI -->
+    <div class="social-container">
+        <button class="main-button" onclick="toggleSocialLinks()">Profiles</button>
+        <div class="social-links" id="socialLinks">
+            <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                <span></span>
+            </a>
+            <a href="https://www.tiktok.com/@yourprofile" target="_blank" class="social-link">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
+                <span></span>
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                <span></span>
+            </a>
+        </div>
+    </div>
+
     <div class="container">
         <div class="message">
             "Vì em, tôi học cách viết <span class="code-element">code</span>.<br>
@@ -263,6 +345,11 @@
                 this.style.animation = 'heartbeat 2s ease-in-out infinite';
             }, 500);
         });
+
+        function toggleSocialLinks() {
+            const socialLinks = document.getElementById('socialLinks');
+            socialLinks.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
