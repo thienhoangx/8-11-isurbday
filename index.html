@@ -121,13 +121,28 @@
             animation: float 6s linear infinite;
         }
 
-        /* Social links styles */
         .social-container {
             position: fixed;
             top: 20px;
             left: 20px;
             z-index: 10;
             text-align: left;
+        }
+
+        .social-background {
+            position: absolute;
+            top: -10uria: 
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: filter 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-background.blur {
+            filter: blur(5px);
         }
 
         .main-button {
@@ -140,6 +155,8 @@
             cursor: pointer;
             transition: background-color 0.3s;
             font-family: 'Noto Serif Display', serif;
+            position: relative;
+            z-index: 1;
         }
 
         .main-button:hover {
@@ -151,6 +168,8 @@
             margin-top: 10px;
             flex-direction: column;
             gap: 10px;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links.active {
@@ -191,7 +210,7 @@
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.1);
+                transform: pixel;
             }
         }
 
@@ -272,27 +291,33 @@
             .social-link span {
                 font-size: 10px;
             }
+            .social-background {
+                top: -5px;
+                left: -5px;
+                right: -5px;
+                bottom: -5px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="floating-hearts"></div>
 
-    <!-- Social links GUI -->
     <div class="social-container">
+        <div class="social-background" id="socialBackground"></div>
         <button class="main-button" onclick="toggleSocialLinks()">Profiles</button>
         <div class="social-links" id="socialLinks">
             <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-link">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-                <span></span>
-            </a>
-            <a href="https://www.tiktok.com/@yourprofile" target="_blank" class="social-link">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
-                <span></span>
+                <span>Thien Hoang</span>
             </a>
             <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-link">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-                <span></span>
+                <span>eagle</span>
+            </a>
+            <a href="https://discord.com/users/yourprofile" target="_blank" class="social-link">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/discord-2752210-2285027.png" alt="Discord">
+                <span>realben2710</span>
             </a>
         </div>
     </div>
@@ -348,7 +373,9 @@
 
         function toggleSocialLinks() {
             const socialLinks = document.getElementById('socialLinks');
+            const socialBackground = document.getElementById('socialBackground');
             socialLinks.classList.toggle('active');
+            socialBackground.classList.toggle('blur');
         }
     </script>
 </body>
