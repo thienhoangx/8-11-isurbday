@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>secret project form thiezhoang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background:black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Serif Display', serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            animation: fadeInUp 1s ease-out;
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        .message {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 30px;
+            margin-right: 200px;
+            line-height: 1.6;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        .code-element {
+            font-family: 'Courier New', monospace;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #8B4513;
+            font-weight: bold;
+        }
+
+        .heart {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            position: relative;
+            animation: heartbeat 4s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .heart svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 5px 15px rgba(255, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .heart:hover svg {
+            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 40px rgba(255, 0, 0, 0.4));
+            transform: scale(1.1);
+        }
+
+        .heart path {
+            fill: none;
+            stroke: #ff3333;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: drawHeart 3s ease-in-out forwards, colorPulse 2s ease-in-out infinite alternate;
+        }
+
+        .heart-particles {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff3333;
+            border-radius: 50%;
+            animation: particleFloat 3s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 40%; left: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(3) { top: 60%; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(4) { top: 30%; left: 80%; animation-delay: 1.5s; }
+        .particle:nth-child(5) { top: 70%; left: 60%; animation-delay: 2s; }
+        .particle:nth-child(6) { top: 50%; left: 40%; animation-delay: 2.5s; }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 51, 51, 0.6);
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes drawHeart {
+            0% {
+                stroke-dasharray: 0 1000;
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dasharray: 1000 1000;
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes colorPulse {
+            0% {
+                stroke: #ff3333;
+                filter: drop-shadow(0 0 5px rgba(255, 51, 51, 0.5));
+            }
+            100% {
+                stroke: #ff6666;
+                filter: drop-shadow(0 0 15px rgba(255, 51, 51, 0.8));
+            }
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-20px) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .heart {
+                width: 150px;
+                height: 150px;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts"></div>
+    
+    <div class="container">
+        <div class="message">
+            "Vì em, tôi học cách viết <span class="code-element">code</span>.<br>
+            Để vẽ nên một trái tim không lỗi cú pháp, chỉ nỗi nhớ"
+        </div>
+        
+        <div class="heart">
+            <svg viewBox="0 0 100 100">
+                <path d="M50,85 C50,85 15,55 15,35 C15,25 25,15 35,15 C42,15 47,20 50,25 C53,20 58,15 65,15 C75,15 85,25 85,35 C85,55 50,85 50,85 Z"/>
+            </svg>
+            <div class="heart-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            const texts = ['miss you', 'ben 10 dai bang','anh yeu em','nho nyc','❤','nho em','hanh phuc nhe','thiezhoang','thuong em'];
+            heart.innerHTML = texts[Math.floor(Math.random() * texts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 0.1 + 's';
+            heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            
+            document.querySelector('.floating-hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+        setInterval(createFloatingHeart, 130);
+        
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createFloatingHeart, i * 200);
+        }
+        document.querySelector('.heart').addEventListener('click', function() {
+            this.style.animation = 'heartbeat 0.5s ease-in-out';
+            setTimeout(() => {
+                this.style.animation = 'heartbeat 2s ease-in-out infinite';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
