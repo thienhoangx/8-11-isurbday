@@ -27,7 +27,6 @@
             max-width: 600px;
             margin: 20px;
         }
-
         .message {
             font-size: 20px;
             color: #fff;
@@ -38,7 +37,6 @@
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             text-align: left;
         }
-
         .code-element {
             font-family: 'Courier New', monospace;
             background: rgba(255, 255, 255, 0.2);
@@ -116,7 +114,7 @@
         }
 
         .main-button:hover {
-            background-color: #cc1a1a;
+            background-color: #ed6179;
         }
 
         .social-links {
@@ -223,7 +221,7 @@
 
     <div class="social-container">
         <div class="social-background" id="socialBackground"></div>
-        <button class="main-button" onclick="toggleSocialLinks()">Profiles</button>
+        <button class="main-button" onclick="toggleSocialLinks()">My Profiles</button>
         <div class="social-links" id="socialLinks">
             <a href="https://www.facebook.com/thienhoang271009" target="_blank" class="social-link">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
@@ -233,9 +231,13 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
                 <span>eagle</span>
             </a>
-            <a href="https://discord.gg/Jcz8baCu" target="_blank" class="social-link">
+            <a href="https://discord.gg/Dhg3ZmpJxt" target="_blank" class="social-link">
                 <img src="https://cdn.iconscout.com/icon/free/png-256/discord-2752210-2285027.png" alt="Discord">
                 <span>realben2710</span>
+            </a>
+               <a href="tiktok.com/@qkrexex" target="_blank" class="social-link">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/tiktok-11306585-9343867.png" alt="Tiktok">
+                <span>qkr exex</span>
             </a>
         </div>
     </div>
@@ -255,7 +257,7 @@
         function createFloatingHeart() {
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
-            const texts = ['miss you', 'ben 10 dai bang','anh yeu em','caesar code','1-1-2025','❤','nho em','hanh phuc nhe','thiezhoang','thuong em'];
+            const texts = ['miss you', 'ben 10 dai bang','i love you','anh yeu em','qkr exex','1-1-2025','27-10-2009','14-2-2025','❤','nho em','hanh phuc nhe','thiezhoang','thuong em'];
             heart.innerHTML = texts[Math.floor(Math.random() * texts.length)];
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDelay = Math.random() * 0 + 's';
