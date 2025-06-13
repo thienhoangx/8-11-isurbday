@@ -29,12 +29,12 @@
         }
         .message {
             font-size: 20px;
-            color: #fff;
+            color: #fa001d;
             margin-bottom: 70px;
             margin-right: 50px;
             line-height: 1.6;
             font-weight: 500;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(173, 216, 230, 0.5);
             text-align: left;
         }
         .code-element {
@@ -71,9 +71,9 @@
         .floating-heart {
             position: absolute;
             font-size: 30px;
-            color: rgba(255, 51, 51, 0.6);
+            color: #ADD8E6;
             animation: float 6s linear infinite;
-            text-shadow: 0 0 10px rgba(255, 51, 51, 0.8), 0 0 20px rgba(255, 51, 51, 0.5);
+            text-shadow: 0 0 10px rgba(173, 216, 230, 0.8), 0 0 20px rgba(173, 216, 230, 0.5);
         }
         .social-container {
             position: fixed;
@@ -148,7 +148,6 @@
             font-family: 'Noto Serif Display', serif;
         }
 
-    
         .soundcloud-player {
             position: fixed;
             bottom: 20px;
@@ -229,7 +228,7 @@
             }
             .floating-heart {
                 font-size: 16px;
-                text-shadow: 0 0 8px rgba(255, 51, 51, 0.8), 0 0 16px rgba(255, 51, 51, 0.5);
+                text-shadow: 0 0 8px rgba(173, 216, 230, 0.8), 0 0 16px rgba(173, 216, 230, 0.5);
             }
             .soundcloud-player {
                 width: 80px;
@@ -268,8 +267,8 @@
 
     <div class="container">
         <div class="message">
-            "Vì em, tôi học cách viết <span class="code-element">code</span>.<br>
-            Để vẽ nên một trái tim không lỗi cú pháp, chỉ nỗi nhớ"
+            <span class="code-element">Some code runs once and crashes.</span><br>
+            <span class="code-element">But the error stays in the log forever.</span>
         </div>
         
         <div class="heart-canvas">
@@ -295,7 +294,7 @@
                 heart.remove();
             }, 15000);
         }
-        setInterval(createFloatingHeart, 160);
+        setInterval(createFloatingHeart, 300);
         
         for (let i = 0; i < 10; i++) {
             setTimeout(createFloatingHeart, i * 200);
@@ -315,7 +314,7 @@
                 iframe.allow = 'autoplay';
                 iframe.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1981528831&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true&start=12';
                 soundcloudPlayer.appendChild(iframe);
-                soundcloudPlayer.style.display = 'block'; // Show the player
+                soundcloudPlayer.style.display = 'block';
             }
         }
 
@@ -329,7 +328,7 @@
             },
         };
 
-        (function(){var b=0;var c=["ms","moz","webkit","o"];for(var a=0;a<c.length&&!window.requestAnimationFrame;++a){window.requestAnimationFrame=window[c[a]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[c[a]+"CancelAnimationFrame"]||window[c[a]+"CancelRequestAnimationFrame"]}if(!window.requestAnimationFrame){window.requestAnimationFrame=function(h,e){var d=new Date().getTime();var f=Math.max(0,16-(d-b));var g=window.setTimeout(function(){h(d+f)},f);b=d+f;return g}}if(!window.cancelAnimationFrame){window.cancelAnimationFrame=function(d){clearTimeout(d)}}}());
+        (function(){var b=0;var c=["ms","moz","webkit","o"];for(var a=0;a<c.length&&!window.requestAnimationFrame;++a){window.requestAnimationFrame=window[c[a]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[c[a]+"CancelAnimationFrame"]||window[c[a]+"CancelRequestAnimationFrame"]}if(!window.requestAnimationFrame){window.requestAnimationFrame=function(h,e){var d=new Date().getTime();var f=Math.max(0,16-(d-b));var g=window.setTimeout(function(){h(d+f)},f);b=d+f;return g}}if(!window.cancelAnimationFrame){window.cancelAnimationFrame=function(d){clearTimeout(d)}}})();
 
         var Point = (function() {
             function Point(x, y) {
@@ -474,7 +473,7 @@
                     context.lineTo(point.x, point.y);
                 }
                 context.closePath();
-                context.fillStyle = '#ff0000';
+                context.fillStyle = '#ADD8E6';
                 context.fill();
                 var image = new Image();
                 image.src = canvas.toDataURL();
