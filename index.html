@@ -283,7 +283,7 @@
         function createFloatingHeart() {
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
-            const texts = ['miss you', 'i love you', 'anh yeu em', 'qkr exex', '1-1-2025', '14-2-2025', '❤', 'thuong em'];
+            const texts = ['miss you', 'i love you', 'to be honest...', 'qkr exex', '1-1-2025', '14-2-2025', '❤', 'first love'];
             heart.innerHTML = texts[Math.floor(Math.random() * texts.length)];
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDelay = Math.random() * 0 + 's';
@@ -295,7 +295,7 @@
                 heart.remove();
             }, 15000);
         }
-        setInterval(createFloatingHeart, 150);
+        setInterval(createFloatingHeart, 160);
         
         for (let i = 0; i < 10; i++) {
             setTimeout(createFloatingHeart, i * 200);
