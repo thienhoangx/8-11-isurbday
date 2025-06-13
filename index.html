@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>moshi moshi miss you</title>
+    <title>moshi moshi</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -70,7 +70,7 @@
 
         .floating-heart {
             position: absolute;
-            font-size: 27px;
+            font-size: 30px;
             color: rgba(255, 51, 51, 0.6);
             animation: float 6s linear infinite;
             text-shadow: 0 0 10px rgba(255, 51, 51, 0.8), 0 0 20px rgba(255, 51, 51, 0.5);
@@ -148,7 +148,7 @@
             font-family: 'Noto Serif Display', serif;
         }
 
-        /* Style for SoundCloud iframe to show only cover art in a small corner */
+    
         .soundcloud-player {
             position: fixed;
             bottom: 20px;
@@ -158,7 +158,7 @@
             z-index: 5;
             border: none;
             overflow: hidden;
-            display: none; /* Hidden by default, shown on button click */
+            display: none;
         }
         .soundcloud-player iframe {
             width: 100%;
@@ -283,11 +283,11 @@
         function createFloatingHeart() {
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
-            const texts = ['miss you', 'ben 10 dai bang', 'i love you', 'anh yeu em', 'qkr exex', '1-1-2025', '27-10-2009', '14-2-2025', '❤', 'nho em', 'hanh phuc nhe', 'thiezhoang', 'thuong em'];
+            const texts = ['miss you', 'i love you', 'anh yeu em', 'qkr exex', '1-1-2025', '14-2-2025', '❤', 'thuong em'];
             heart.innerHTML = texts[Math.floor(Math.random() * texts.length)];
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDelay = Math.random() * 0 + 's';
-            heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            heart.style.animationDuration = (Math.random() * 4 + 2.5) + 's';
             
             document.querySelector('.floating-hearts').appendChild(heart);
             
@@ -308,8 +308,6 @@
 
             socialLinks.classList.toggle('active');
             socialBackground.classList.toggle('blur');
-
-            // Load and play SoundCloud iframe only if not already loaded
             if (!soundcloudPlayer.innerHTML) {
                 const iframe = document.createElement('iframe');
                 iframe.scrolling = 'no';
