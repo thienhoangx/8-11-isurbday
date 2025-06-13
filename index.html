@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>moshi moshi</title>
+    <title>moshi moshi miss you</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -147,6 +147,8 @@
         .social-link span {
             font-family: 'Noto Serif Display', serif;
         }
+
+        /* Style for SoundCloud iframe to show only cover art in a small corner */
         .soundcloud-player {
             position: fixed;
             bottom: 20px;
@@ -156,7 +158,7 @@
             z-index: 5;
             border: none;
             overflow: hidden;
-            display: none; 
+            display: none; /* Hidden by default, shown on button click */
         }
         .soundcloud-player iframe {
             width: 100%;
@@ -281,7 +283,7 @@
         function createFloatingHeart() {
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
-            const texts = ['miss you', 'ben 10 dai bang','park bo gum', 'i love you', 'anh yeu em', 'qkr exex', '1-1-2025', '27-10-2009', '14-2-2025', '❤', 'nho em', 'hanh phuc nhe', 'thiezhoang', 'thuong em'];
+            const texts = ['miss you', 'ben 10 dai bang', 'i love you', 'anh yeu em', 'qkr exex', '1-1-2025', '27-10-2009', '14-2-2025', '❤', 'nho em', 'hanh phuc nhe', 'thiezhoang', 'thuong em'];
             heart.innerHTML = texts[Math.floor(Math.random() * texts.length)];
             heart.style.left = Math.random() * 100 + '%';
             heart.style.animationDelay = Math.random() * 0 + 's';
@@ -293,7 +295,7 @@
                 heart.remove();
             }, 10000);
         }
-        setInterval(createFloatingHeart, 130);
+        setInterval(createFloatingHeart, 150);
         
         for (let i = 0; i < 10; i++) {
             setTimeout(createFloatingHeart, i * 200);
@@ -306,14 +308,16 @@
 
             socialLinks.classList.toggle('active');
             socialBackground.classList.toggle('blur');
+
+            // Load and play SoundCloud iframe only if not already loaded
             if (!soundcloudPlayer.innerHTML) {
                 const iframe = document.createElement('iframe');
                 iframe.scrolling = 'no';
                 iframe.frameborder = 'no';
                 iframe.allow = 'autoplay';
-                iframe.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455046894&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true';
+                iframe.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1981528831&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true&start=12';
                 soundcloudPlayer.appendChild(iframe);
-                soundcloudPlayer.style.display = 'block'; 
+                soundcloudPlayer.style.display = 'block'; // Show the player
             }
         }
 
